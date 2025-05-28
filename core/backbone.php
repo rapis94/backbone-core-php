@@ -1,42 +1,18 @@
 <?php
 date_default_timezone_set("America/Argentina/Buenos_Aires");
-define("RESTAURANTE", "Pampa Burger");
-define("URL_ENCODE_NAME", "Pampa%20Burger");
-define("WEB_URL", "www.pampa.uy");
-define("CODE_PREFIX", "PAMPA");
-define("CODE_CHAIN", "PMA0123456789");
-define("WA", "59899372473");
-define("TELEFONO", "099372473");
-define("PIX", "55997008711");
-define("DIRECCION", "Faustino Carambula 1038");
-define("MAPS", "https://www.google.com/maps/dir//Faustino+Car%C3%A1mbula+1038,+40000+Rivera,+Departamento+de+Rivera/@-30.8985933,-55.5431848,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95a9fef6da2e0cc9:0x4ce44481e40e99dd!2m2!1d-55.5406151!2d-30.8986052?entry=ttu");
-define("DESCRIPCION", "O Pampa Burger é um restaurante em Rivera que oferece pizzas por metro com sabores à escolha e hambúrgueres artesanais feitos na parrilla. Uma experiência única e saborosa!");
 function Config()
 {
 
     $datos = [
         0 => "localhost",
-        1 => "root",
-        2 => "4563-Lemos",
-        3 => "mrpollo"
+        1 => "usuario",
+        2 => "contraseña",
+        3 => "basededatos"
     ];
     return $datos;
 }
 
 
-/*
-
-function Config()
-{
-$datos = array(
-0 => "localhost",
-1 => "pampa_root",
-2 => "Pampa-2023",
-3 => "pampa_base"
-);
-return $datos;
-}
-*/
 function execQuery(string $query, array $params = [])
 {
     $conn = getConnection();
@@ -92,27 +68,9 @@ function execQuery(string $query, array $params = [])
 
 
 
-function getConnection()
-{
-
-    $datos = Config();
-
-    $conn = new mysqli($datos[0], $datos[1], $datos[2], $datos[3]);
-    if ($conn->connect_error) {
-        throw new Exception("Conexión fallida: " . $conn->connect_error);
-    }
-
-    return $conn;
-}
-
-function calcularCotizacion($monto, $cot, $operacion)
-{
-
-    return $operacion == "/" ? ceil($monto / $cot) : $monto * $cot;
-}
 function hash_password($password)
 {
-    $SALT = 'pitogordo';
+    $SALT = 'saltencuestion';
     return hash('sha256', $SALT . $password);
 }
 
@@ -127,6 +85,7 @@ function generate_string($input, $strength = 16)
     }
     return $random_string;
 }
+
 function convertDate($fecha, $tipo = 1)
 {
     $date = date_create_from_format("Y-m-d H:i:s", $fecha);
