@@ -1,13 +1,13 @@
-Funcionamiento básico -
-IMPORTANTE RECORDAR RENOMBRAR EL ARCHIVO "htaccess" a ".htaccess"
-El sistema cuenta con rutas, las cuales son privadas, salvo que se creen dentro del directorio routes/public
+<h2>What is backbone-core-php?</h2>
+backbone-core-php is a different way of approaching PHP, inspired by microservices architecture. It allows modular code execution with pre-built and optimized functions. Its goal is to provide a lightweight, fast-response backend that only requires a web server with a properly configured vHost on Apache or Nginx.
 
-Todas las solicitudes son desviadas por el htaccess hacia "routes"
+What does backbone-core-php offer?
+Direct Routing via .htaccess:
+The routes folder contains PHP files that are executed based on the requested URL path. It leverages the power of .htaccess to cleanly redirect requests, working similarly to Node.js endpoints for efficient and intuitive routing.
 
-Las rutas privadas deben pasar la autenticación JWT para ejecutarse.
+JWT-Protected Routes:
+The library comes preconfigured to allow public access only to endpoints located in routes/public. All other routes are secured and require JWT (JSON Web Token) authentication to be accessed.
 
-El archivo Core.php se encarga de el enrutamiento, mientras el que backbone.php se encarga de la conexión con la DB.
-
-Se recomienda el uso de variables de entorno para mayor se guridad de los datos sensibles
-
+execQuery Function:
+This is a purpose-built function to handle database interactions safely and efficiently. It simplifies the execution of prepared statements, ensuring protection against SQL injection and offering easily interpretable return values.
 
