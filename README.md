@@ -1,5 +1,7 @@
+<div style="width:100%; display: flex; column-gap: 10px">
 <a href="#backbone-what-eng">English</a>
 <a href="#backbone-what-esp">Español</a>
+</div>
 <h2 id="backbone-what-eng">What is backbone-core-php?</h2>
 backbone-core-php is a different way of approaching PHP, inspired by microservices architecture. It allows modular code execution with pre-built and optimized functions. Its goal is to provide a lightweight, fast-response backend that only requires a web server with a properly configured vHost on Apache or Nginx.
 
